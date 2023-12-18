@@ -1,0 +1,11 @@
+<.simple_form for={@form} phx-submit={if @form[:id].value, do: "update-item", else: "create-item"}>
+  <.input field={@form[:text]} label="Text" />
+
+  <.inputs_for :let={post} field={@form[:posts]}>
+    <.input field={post[:text]} label={"Post #{post.index + 1}"} />
+  </.inputs_for>
+
+  <:actions>
+    <.button>Submit</.button>
+  </:actions>
+</.simple_form>
